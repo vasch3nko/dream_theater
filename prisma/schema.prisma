@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Performance {
+  id            Int      @id @default(autoincrement())
+  name          String   @db.VarChar(255)
+  description   String   @db.Text
+  soldOut       Boolean  @default(false)
+  perfomancedAt DateTime
+  comments      Comment[]
+}
+
+model Comment {
+  id            Int         @id @default(autoincrement())
+  performance   Performance @relation(fields: [performanceId], references: [id])
+  performanceId Int
+  content       String      @db.Text
+  rating        Int         @db.SmallInt
+  createdAt     DateTime    @default(now())
+}
