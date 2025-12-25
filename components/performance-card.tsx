@@ -1,5 +1,7 @@
-import {Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
+import {AvgStarRating} from "@/components/avg-star-rating";
+import Link from "next/link";
 
 export default function PerformanceCard({performance}: {
     performance: {
@@ -24,20 +26,19 @@ export default function PerformanceCard({performance}: {
     );
 
     return (
-        <Card className="w-full max-w-sm">
+        <Card className="w-full">
             <CardHeader>
                 <CardTitle>{performance.name}</CardTitle>
-                <CardDescription>{performance.description}</CardDescription>
-                <CardAction>
-                    <span>{avgRating}</span>
-                </CardAction>
+                <AvgStarRating value={avgRating}/>
             </CardHeader>
             <CardContent>
-
+                <CardDescription>{performance.description}</CardDescription>
             </CardContent>
             <CardFooter className="flex-col gap-2">
-                <Button variant="outline" className="w-full">
-                    Login with Google
+                <Button variant="default" className="w-full">
+                    <Link href={`/performances/${performance.id}`} className="w-full">
+                        О выступлении
+                    </Link>
                 </Button>
             </CardFooter>
         </Card>

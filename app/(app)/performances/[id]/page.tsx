@@ -1,6 +1,6 @@
 import {prisma} from "@/lib/prisma";
 import {notFound} from "next/navigation";
-import PerformanceCard from "@/components/performance-card";
+import PerformanceClient from "@/app/(app)/performances/[id]/performance-client";
 
 export default async function Performance({params}: { params: Promise<{ id: number }> }) {
     const {id} = await params;
@@ -14,7 +14,5 @@ export default async function Performance({params}: { params: Promise<{ id: numb
         notFound();
     }
 
-    return (
-        <PerformanceCard performance={performance}/>
-    );
+    return <PerformanceClient performance={performance}/>;
 }
