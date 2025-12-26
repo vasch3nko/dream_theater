@@ -28,6 +28,8 @@ export default function HomeClient({performances}: {
 
     useEffect(() => {
         setLinks([{href: '/performances', label: 'Мероприятия'}]);
+        setLinks([{href: '#performances', label: 'Предстоящие мероприятия'}]);
+        setLinks([{href: '#faq', label: 'FAQ'}]);
         return () => setLinks([]);
     }, [setLinks]);
 
@@ -66,7 +68,7 @@ export default function HomeClient({performances}: {
             <Separator className="my-10"/>
 
             <section className="space-y-10">
-                <h2 className="text-2xl md:text-3xl lg:text-5xl font-black">Предстоящие выступления:</h2>
+                <h2 id="performances" className="text-2xl md:text-3xl lg:text-5xl font-black">Предстоящие выступления:</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                     {performances.map((performance) => (
@@ -80,7 +82,7 @@ export default function HomeClient({performances}: {
             <section>
                 <Card className="shadow-xl rounded-2xl">
                     <CardContent className="p-6">
-                        <h2 className="text-3xl font-bold mb-6 tracking-tight">
+                        <h2 id="faq" className="text-3xl font-bold mb-6 tracking-tight">
                             FAQ — Dream Theater
                         </h2>
 

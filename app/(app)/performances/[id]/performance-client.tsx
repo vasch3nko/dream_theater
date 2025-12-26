@@ -36,6 +36,8 @@ export default function PerformanceClient({performance}: {
 
     useEffect(() => {
         setLinks([{href: '/performances', label: 'Мероприятия'}]);
+        setLinks([{href: '#comment-form', label: 'Написать комментарий'}]);
+        setLinks([{href: '#comments', label: 'Комментарии'}]);
         return () => setLinks([]);
     }, [setLinks]);
 
@@ -84,7 +86,7 @@ export default function PerformanceClient({performance}: {
             <Separator className="my-5"/>
 
             <section className="space-y-5">
-                <h3 className="text-2xl font-bold">Написать комментарий:</h3>
+                <h3 id="comment-form" className="text-2xl font-bold">Написать комментарий:</h3>
                 <Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
@@ -133,7 +135,7 @@ export default function PerformanceClient({performance}: {
             <Separator className="my-5"/>
 
             <section className="space-y-5">
-                <h3 className="text-2xl font-bold">Комментарии:</h3>
+                <h3 id="comments" className="text-2xl font-bold">Комментарии:</h3>
 
                 <div className="grid md:grid-cols-2 gap-5">
                     {comments.map(comment => (
