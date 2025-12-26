@@ -27,9 +27,11 @@ export default function HomeClient({performances}: {
     const {setLinks} = useHeaderLinks();
 
     useEffect(() => {
-        setLinks([{href: '/performances', label: 'Мероприятия'}]);
-        setLinks([{href: '#performances', label: 'Предстоящие мероприятия'}]);
-        setLinks([{href: '#faq', label: 'FAQ'}]);
+        setLinks([
+            {href: '/performances', label: 'Мероприятия'},
+            {href: '#performances', label: 'Предстоящие мероприятия'},
+            {href: '#faq', label: 'FAQ'},
+        ]);
         return () => setLinks([]);
     }, [setLinks]);
 

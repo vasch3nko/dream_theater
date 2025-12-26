@@ -35,9 +35,11 @@ export default function PerformanceClient({performance}: {
     const {setLinks} = useHeaderLinks();
 
     useEffect(() => {
-        setLinks([{href: '/performances', label: 'Мероприятия'}]);
-        setLinks([{href: '#comment-form', label: 'Написать комментарий'}]);
-        setLinks([{href: '#comments', label: 'Комментарии'}]);
+        setLinks([
+            {href: '/performances', label: 'Мероприятия'},
+            {href: '#comment-form', label: 'Написать комментарий'},
+            {href: '#comments', label: 'Комментарии'},
+        ]);
         return () => setLinks([]);
     }, [setLinks]);
 
